@@ -6,7 +6,7 @@
 export const CONFIG = {
   // ✉️ Адреса електронної пошти для отримання заявок
   // Замініть на вашу реальну пошту (наприклад: 'info@egostudio.com' або 'yourname@gmail.com')
-  RECIPIENT_EMAIL: 'example@gmail.com',
+  RECIPIENT_EMAIL: 'Strevgeniy95@gmail.com',
 
   // ⚙️ Провайдер відправки:
   // - 'formsubmit' : надійний безкоштовний сервіс для статичного хостингу (Vercel, Netlify, GitHub Pages тощо)
