@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>EGO STUDIO — Залиш Заявку</title>
+  <meta name="description" content="EGO STUDIO — гнучкий графік, високий дохід, можна без досвіду. Залиште заявку прямо зараз.">
+  <meta name="theme-color" content="#0d0a08">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <!-- Ambient Desktop Atmosphere -->
+  <div class="desktop-backdrop">
+    <div class="desktop-glow desktop-glow-left"></div>
+    <div class="desktop-glow desktop-glow-right"></div>
+  </div>
+
+  <!-- Main Mobile App Shell -->
+  <main class="app-shell" id="app-shell">
+    <!-- Background Visual Art -->
+    <div class="bg-layer" style="background-image: url('/bg.jpg');"></div>
+    <div class="bg-vignette"></div>
+
+    <!-- Canvas Particle Overlay -->
+    <canvas id="gold-particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- Scrollable Content Layer -->
+    <div class="content-scroll">
+      <div class="mobile-container">
+
+        <!-- 1. Header: Logo & Divider -->
+        <header class="studio-header">
+          <h1 class="logo-title">EGO STUDIO</h1>
+          <div class="gold-line-small"></div>
+        </header>
+
+        <!-- 2. Benefits / Advantages Row -->
+        <section class="benefits-section" aria-label="Переваги">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i data-lucide="graduation-cap"></i>
+            </div>
+            <p class="benefit-text">МОЖНА<br>БЕЗ ДОСВІДУ</p>
+          </div>
+
+          <div class="benefit-divider"></div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i data-lucide="calendar"></i>
+            </div>
+            <p class="benefit-text">ГНУЧКИЙ<br>ГРАФІК</p>
+          </div>
+
+          <div class="benefit-divider"></div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i data-lucide="bar-chart-3"></i>
+            </div>
+            <p class="benefit-text">ВИСОКИЙ<br>ДОХІД</p>
+          </div>
+        </section>
+
+        <!-- 3. Form Heading & Subheading -->
+        <section class="form-header-section">
+          <h2 class="form-title">ЗАЛИШ ЗАЯВКУ</h2>
+          <p class="form-subtitle">Ми зв'яжемося з тобою найближчим часом<br>та розповімо всі деталі</p>
+        </section>
+
+        <!-- 4. Contact Form -->
+        <form id="contact-form" class="lead-form" novalidate>
+          <!-- Hidden tracking ID for metrics -->
+          <input type="hidden" name="user_id" id="metric-id-input" value="">
+
+          <!-- Field: Name -->
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i data-lucide="user"></i>
+            </span>
+            <input type="text" id="name-input" name="name" class="custom-input" placeholder="Ім'я*" autocomplete="name" required>
+            <span class="error-hint">Будь ласка, вкажіть ваше ім'я</span>
+          </div>
+
+          <!-- Field: Age -->
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i data-lucide="cake"></i>
+            </span>
+            <input type="number" id="age-input" name="age" class="custom-input" placeholder="Вік*" min="16" max="90" required>
+            <span class="error-hint">Вкажіть вік від 16 років</span>
+          </div>
+
+          <!-- Field: City -->
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i data-lucide="map-pin"></i>
+            </span>
+            <input type="text" id="city-input" name="city" class="custom-input" placeholder="Місто*" autocomplete="address-level2" required>
+            <span class="error-hint">Будь ласка, вкажіть ваше місто</span>
+          </div>
+
+          <!-- Field: Phone -->
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i data-lucide="phone"></i>
+            </span>
+            <input type="tel" id="phone-input" name="phone" class="custom-input" placeholder="Телефон*" autocomplete="tel" required>
+            <span class="error-hint">Введіть коректний номер телефону</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-btn" class="submit-button">
+            <span class="btn-content">
+              <span class="btn-text">НАДІСЛАТИ</span>
+              <i data-lucide="arrow-right" class="btn-arrow"></i>
+            </span>
+            <span class="btn-spinner"></span>
+            <span class="shimmer-glare"></span>
+          </button>
+        </form>
+
+        <!-- 6. Contacts Section -->
+        <section class="contacts-section" aria-label="Контакти">
+          <div class="section-divider"></div>
+          <h3 class="contacts-heading">НАШІ КОНТАКТИ</h3>
+
+          <div class="contacts-grid">
+            <!-- 1. Phone -->
+            <a href="tel:+380969009324" class="contact-card contact-btn" aria-label="Зателефонувати">
+              <div class="contact-icon-circle">
+                <i data-lucide="phone"></i>
+              </div>
+              <div class="contact-label-block">
+                <span class="contact-primary">+380 96 900 93 24</span>
+                <span class="contact-secondary">Телефон</span>
+              </div>
+            </a>
+
+            <!-- 2. Telegram -->
+            <a href="https://t.me/JenyaHR2025" target="_blank" rel="noopener noreferrer" class="contact-card contact-btn" aria-label="Telegram">
+              <div class="contact-icon-circle">
+                <i data-simple-icon="telegram"></i>
+              </div>
+              <div class="contact-label-block">
+                <span class="contact-primary">Написати</span>
+                <span class="contact-secondary">в Telegram</span>
+              </div>
+            </a>
+
+            <!-- 3. Viber -->
+            <a href="https://msng.link/vi/380969009324" class="contact-card contact-btn" aria-label="Viber">
+              <div class="contact-icon-circle">
+                <i data-simple-icon="viber"></i>
+              </div>
+              <div class="contact-label-block">
+                <span class="contact-primary">Написати</span>
+                <span class="contact-secondary">y Viber</span>
+              </div>
+            </a>
+
+            <!-- 4. WhatsApp -->
+            <a href="https://wa.me/380969009324" target="_blank" rel="noopener noreferrer" class="contact-card contact-btn" aria-label="WhatsApp">
+              <div class="contact-icon-circle">
+                <i data-simple-icon="whatsapp"></i>
+              </div>
+              <div class="contact-label-block">
+                <span class="contact-primary">Написати</span>
+                <span class="contact-secondary">y WhatsApp</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 7. Footer: Motto & Heart -->
+        <footer class="studio-footer">
+          <div class="motto-divider-line">
+            <span class="motto-line"></span>
+            <span class="motto-text">ЧЕКАЄМО САМЕ НА ТЕБЕ</span>
+            <span class="motto-line"></span>
+          </div>
+          <div class="footer-heart-wrapper">
+            <i data-lucide="heart" class="footer-heart"></i>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Confirmation Modal -->
+  <div id="success-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="confetti-container" class="confetti-container"></div>
+    <div class="modal-card">
+      <div class="modal-gold-badge">
+        <i data-lucide="check"></i>
+      </div>
+      <h3 id="modal-title" class="modal-title">ЗАЯВКУ ПРИЙНЯТО!</h3>
+      <p class="modal-desc">Дякуємо! Наш менеджер зв'яжеться з вами найближчим часом та відповість на всі запитання.</p>
+      <button id="modal-close-btn" class="modal-action-btn">ДОБРЕ</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
