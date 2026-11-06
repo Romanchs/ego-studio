@@ -38,7 +38,29 @@ export async function sendLeadToEmail(data) {
   let endpoint = '';
   let requestOptions = {};
 
-  if (CONFIG.PROVIDER === 'formsubmit') {
+  if (CONFIG.PROVIDER === 'web3forms') {
+    if (!CONFIG.WEB3FORMS_ACCESS_KEY || CONFIG.WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+      console.warn('Web3Forms Access Key is not set in config.js');
+      return {
+        success: false,
+        message: 'Вкажіть Web3Forms Access Key у src/js/config.js (отримайте на web3forms.com)'
+      };
+    }
+
+    endpoint = 'https://api.web3forms.com/submit';
+    payload.access_key = CONFIG.WEB3FORMS_ACCESS_KEY;
+    payload.subject = `✨ Нова заявка EGO STUDIO [ID: ${metricDetails?.metricId || 'Без ID'}]`;
+    payload.from_name = 'EGO STUDIO';
+
+    requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    };
+  } else if (CONFIG.PROVIDER === 'formsubmit') {
     const email = CONFIG.RECIPIENT_EMAIL || 'example@gmail.com';
     endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(email)}`;
     requestOptions = {
@@ -91,17 +113,17 @@ export async function sendLeadToEmail(data) {
 
     if (response.ok) {
       const json = await response.json().catch(() => ({}));
+      if (json.success === false) {
+        return { success: false, message: json.message || 'Помилка надсилання через Web3Forms.' };
+      }
       return { success: true, message: json.message || 'Заявку успішно відправлено!' };
     } else {
-      const errText = await response.text().catch(() => '');
-      console.warn('Submission response error:', response.status, errText);
-      // Even if endpoint returns activation notice or rate limit, mark received if status 200/201
-      if (response.status === 200 || response.status === 201) {
-        return { success: true };
-      }
+      const json = await response.json().catch(() => null);
+      const errMsg = json?.message || 'Помилка надсилання. Спробуйте пізніше або звʼяжіться з нами в месенджерах.';
+      console.warn('Submission response error:', response.status, errMsg);
       return { 
         success: false, 
-        message: 'Помилка надсилання. Спробуйте пізніше або звʼяжіться з нами в месенджерах.' 
+        message: errMsg 
       };
     }
   } catch (error) {

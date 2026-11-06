@@ -5,14 +5,19 @@
  */
 export const CONFIG = {
   // ✉️ Адреса електронної пошти для отримання заявок
-  // Замініть на вашу реальну пошту (наприклад: 'info@egostudio.com' або 'yourname@gmail.com')
   RECIPIENT_EMAIL: 'Strevgeniy95@gmail.com',
 
+  // 🔑 Web3Forms Access Key
+  // Отримайте безкоштовно за 10 секунд на https://web3forms.com/
+  // (просто введіть Strevgeniy95@gmail.com на сайті, вам на пошту прийде ключ і вставте його сюди)
+  WEB3FORMS_ACCESS_KEY: '96af98e6-4380-4b76-85c1-9dafefd2d6eb',
+
   // ⚙️ Провайдер відправки:
-  // - 'formsubmit' : надійний безкоштовний сервіс для статичного хостингу (Vercel, Netlify, GitHub Pages тощо)
-  // - 'php'        : використання файлу send.php (якщо у вас традиційний хостинг з підтримкою PHP)
+  // - 'web3forms'  : ідеально для Cloudflare Workers / Pages (без бекенду, надійно, без помилки 405)
+  // - 'formsubmit' : відправка через formsubmit.co
+  // - 'php'        : використання send.php (тільки якщо хостинг підтримує PHP)
   // - 'custom'     : власний вебхук або API-ендпоінт
-  PROVIDER: 'formsubmit',
+  PROVIDER: 'web3forms',
 
   // 🔗 Власний API-ендпоінт (використовується тільки якщо PROVIDER = 'custom')
   CUSTOM_ENDPOINT: '',
