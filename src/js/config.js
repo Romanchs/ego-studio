@@ -12,7 +12,7 @@ export const CONFIG = {
   // - 'formsubmit' : надійний безкоштовний сервіс для статичного хостингу (Vercel, Netlify, GitHub Pages тощо)
   // - 'php'        : використання файлу send.php (якщо у вас традиційний хостинг з підтримкою PHP)
   // - 'custom'     : власний вебхук або API-ендпоінт
-  PROVIDER: 'php',
+  PROVIDER: 'formsubmit',
 
   // 🔗 Власний API-ендпоінт (використовується тільки якщо PROVIDER = 'custom')
   CUSTOM_ENDPOINT: '',
